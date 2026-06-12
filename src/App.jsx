@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import NavBar from './components/NavBar'
 
 function App() {
-  const [name, setName] = useState("Ceren")
+  const [name, setName] = useState("Ceren's")
   const [coffee, setCoffee] = useState(0)
   const [darkMode, setDarkMode] = useState(false)
 
-  const textColor = darkMode ? '#a687a5' : '#0d83f9'
+  const textColor = darkMode ? '#e784b5' : '#8ec7ff'
   const backgroundColor = darkMode ? '#242424' : '#faf8f5'
 
   return (
@@ -19,29 +20,14 @@ function App() {
         fontFamily: 'sans-serif'
       }}>
 
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            backgroundColor: darkMode ? '#fff' : '#333',
-            color: darkMode ? '#0055ff' : '#fff',
-            padding: '8px 16px',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-        >
-          {darkMode ? '☀️ Light Mode' : '🌙 Night Mode'}
-        </button>
+        <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-        <h1 style={{ color: textColor, marginBottom: '20px' }}>
-          Welcome {name} to our World
+        <h1 style={{ color: textColor, marginBottom: '20px', marginTop: '40px' }}>
+          Welcome to {name} World
         </h1>
 
         <button 
-          onClick={() => setName("You're amazing!")}
+          onClick={() => setName("an amazing world")}
           style={{
             backgroundColor: '#3498db',
             color: '#fff',
@@ -52,7 +38,7 @@ function App() {
             fontSize: '14px'
           }}
         >
-          Click on me!!
+          CLICK ON ME 
         </button>
 
         <hr style={{ margin: '40px auto', width: '30%', opacity: '0.15' }} />
